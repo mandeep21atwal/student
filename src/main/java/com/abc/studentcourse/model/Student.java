@@ -1,5 +1,4 @@
 package com.abc.studentcourse.model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
@@ -17,20 +16,16 @@ import lombok.*;
 public class Student{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-
+    @Column
     private long id;
+
     @Column
     @Size(max = 20, message = "First name must be less than 20 characters")
     private String fistName;
-
-    @Size(max = 20, message = "Last name must be less than 20 characters")
     @Column
+    @Size(max = 20, message = "Last name must be less than 20 characters")
     private  String lastName;
     @Column
     @Email(message = "Please provide valid email address")
     private String emailid;
-
-
-
-
 }
